@@ -1,0 +1,81 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+  color: #000;
+  min-height: 100vh;
+}
+
+.wrapper {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.card_flip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 100px;
+}
+
+.card-wrapper {
+  width: 300px;
+  height: 550px;
+  perspective: 800px;
+}
+.card-wrapper .card {
+  width: 100%;
+  height: calc(100% - 50px);
+  position: relative;
+  transition: transform 0.5s ease-in-out;
+  transform-style: preserve-3d;
+}
+.card-wrapper .card_face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.card-wrapper .card_front {
+  background-color: #f00;
+}
+.card-wrapper .card_back {
+  background-color: #00f;
+}
+.card-wrapper .card_content h3 {
+  font-size: 2rem;
+  color: #fff;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.card-wrapper.axis-y .card_back {
+  transform: rotateY(180deg);
+}
+.card-wrapper.axis-y:hover .card {
+  transform: rotateY(180deg);
+}
+.card-wrapper.axis-x .card_back {
+  transform: rotateX(180deg);
+}
+.card-wrapper.axis-x:hover .card {
+  transform: rotateX(180deg);
+}
+.card-wrapper > p {
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 1rem;
+}/*# sourceMappingURL=style.css.map */

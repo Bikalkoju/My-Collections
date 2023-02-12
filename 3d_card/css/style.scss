@@ -1,0 +1,106 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff;
+    color: #000;
+    min-height: 100vh;
+}
+
+.wrapper {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.card_flip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 100px;
+}
+
+.card-wrapper {
+    width: 300px;
+    height: 550px;
+    perspective: 800px;
+
+    .card {
+        width: 100%;
+        height: calc(100% - 50px);
+        position: relative;
+        transition: transform .5s ease-in-out;
+        transform-style: preserve-3d;
+
+        &_face {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backface-visibility: hidden;
+        }
+
+        &_front {
+            background-color: #f00;
+        }
+
+        &_back {
+            background-color: #00f;
+        }
+
+        &_content {
+            h3 {
+                font-size: 2rem;
+                color: #fff;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    &.axis {
+        &-y {
+            .card {
+                &_back {
+                    transform: rotateY(180deg);
+                }
+            }
+
+            &:hover {
+                .card {
+                    transform: rotateY(180deg);
+                }
+            }
+        }
+
+        &-x {
+            .card {
+                &_back {
+                    transform: rotateX(180deg);
+                }
+            }
+
+            &:hover {
+                .card {
+                    transform: rotateX(180deg);
+                }
+            }
+        }
+    }
+
+    >p {
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        font-size: 1rem;
+    }
+}
